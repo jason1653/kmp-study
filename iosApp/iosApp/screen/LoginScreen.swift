@@ -46,15 +46,17 @@ struct LoginScreen: View {
 
             
             Spacer()
-            Button("로그인", action: {
-            })
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(Color.white)
-                .fontWeight(.bold)
-                .font(.system(size: 16))
-                .cornerRadius(5.0)
+            Button(action: {
+            }) {
+                Text("로그인")
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(Color.white)
+                    .fontWeight(.bold)
+                    .font(.system(size: 16))
+                    .cornerRadius(5.0)
+            }
         })
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 30))
         
