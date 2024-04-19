@@ -39,7 +39,13 @@ struct LoginScreen: View {
 
             
             Spacer()
-            Text("테스트")
+            Button("로그인", action: {
+            })
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.blue)
+                .foregroundColor(Color.white)
+                .cornerRadius(5.0)
         })
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 30))
         

@@ -89,7 +89,6 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
-				961239102BD1F628004D2FCE /* SplashScreen.swift */,
 			);
 			path = iosApp;
 			sourceTree = "<group>";
@@ -113,6 +112,7 @@
 		961239152BD24374004D2FCE /* screen */ = {
 			isa = PBXGroup;
 			children = (
+				961239102BD1F628004D2FCE /* SplashScreen.swift */,
 				961239162BD24383004D2FCE /* auth */,
 			);
 			path = screen;
