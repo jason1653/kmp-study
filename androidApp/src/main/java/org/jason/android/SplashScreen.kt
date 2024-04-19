@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -28,6 +29,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -38,22 +40,22 @@ fun SplashScreen() {
     var logoPaddingBottom by remember { mutableStateOf(0.dp) }
 
     LaunchedEffect(key1 = true) {
-        launch {
-//            logoPaddingBottom.animateTo(targetValue = 200.dp, animationSpec = tween(durationMillis = 500))
-            splashLoading = true
-        }
+        delay(2000)  // Delay for 2 seconds
+        splashLoading = true
     }
 
-    Box(modifier = Modifier
-        .fillMaxSize()
-        .background(colorResource(R.color.primary))
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(R.color.primary))
     ) {
 
         Column(
             modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.Center,
 
-        ) {
+            ) {
             Box(
                 modifier = Modifier
                     .weight(0.8f)
@@ -70,103 +72,52 @@ fun SplashScreen() {
                 )
             }
 
-            Box(
-                modifier = Modifier
-                    .weight(0.2f)
-                    .fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                Column(
-
-                ) {
-                    Button(
-                        modifier =
-                        Modifier
-                            .padding(start = 10.dp, end = 10.dp)
-                            .fillMaxWidth()
-                            .height(50.dp),
-                        onClick = {},
-                        shape = RoundedCornerShape(5.dp),
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.White,
-                            contentColor = Color.Black
-                        )
-                    ) {
-                        Text("시작하기", fontWeight = FontWeight.Bold)
-                    }
-
-                    Button(
-                        modifier =
-                        Modifier
-                            .padding(top = 10.dp, start = 10.dp, end = 10.dp)
-                            .fillMaxWidth()
-                            .height(50.dp),
-                        onClick = {},
-                        colors = ButtonDefaults.buttonColors(
-                            containerColor = Color.Transparent
-                        )
-                    ) {
-                        Text("로그인", fontWeight = FontWeight.Bold)
-                    }
-                }
-
-
-
-
-            }
-
-
-
-        }
-
-
-
-
-
-        /*
-        if (splashLoading) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(horizontal = 16.dp),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                Button(
-                    onClick = { /* TODO: Start action */ },
+            if(splashLoading) {
+                Box(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(),
-                    shape = RoundedCornerShape(3.dp)
+                        .weight(0.2f)
+                        .fillMaxSize(),
+                    contentAlignment = Alignment.Center
                 ) {
-                    Text("시작하기", color = Color.Black)
-                }
+                    Column {
+                        Button(
+                            modifier =
+                            Modifier
+                                .padding(start = 10.dp, end = 10.dp)
+                                .fillMaxWidth()
+                                .height(50.dp),
+                            onClick = {},
+                            shape = RoundedCornerShape(5.dp),
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color.White,
+                                contentColor = Color.Black
+                            )
+                        ) {
+                            Text("시작하기", fontWeight = FontWeight.Bold)
+                        }
 
-                Spacer(modifier = Modifier.height(20.dp))
+                        Button(
+                            modifier =
+                            Modifier
+                                .padding(top = 10.dp, start = 10.dp, end = 10.dp)
+                                .fillMaxWidth()
+                                .height(50.dp),
+                            onClick = {},
+                            colors = ButtonDefaults.buttonColors(
+                                containerColor = Color.Transparent
+                            )
+                        ) {
+                            Text("로그인", fontWeight = FontWeight.Bold)
+                        }
 
-                Text("로그인", color = Color.White)
 
-                Spacer(modifier = Modifier.height(20.dp))
-
-                Divider(color = Color.White, thickness = 1.dp)
-
-                Spacer(modifier = Modifier.height(20.dp))
-
-                Row(horizontalArrangement = Arrangement.SpaceEvenly, modifier = Modifier.fillMaxWidth()) {
-                    Button(onClick = { /* TODO: Kakao action */ }) {
-                        Text("네이버")
-                    }
-                    Button(onClick = { /* TODO: Kakao action */ }) {
-                        Text("카카오")
-                    }
-                    Button(onClick = { /* TODO: Apple action */ }) {
-                        Text("애플")
+                        Divider(
+                            modifier = Modifier.padding(10.dp)
+                        )
                     }
                 }
             }
         }
-
-         */
     }
 }
 
