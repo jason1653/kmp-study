@@ -9,14 +9,21 @@
 import SwiftUI
 
 struct LoginScreen: View {
+    @Binding var isShowLoginScreen: Bool
     @State private var email: String = ""
     @State private var password: String = ""
     var body: some View {
         VStack(alignment: .leading, content: {
             HStack {
-                Button(action: {}) {
+                Button(action: {
+                    isShowLoginScreen = false
+                }) {
                     HStack {
-                        Image(systemName: "chevron.left")
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 15, height: 15)
+                            .foregroundColor(.black)
                     }
                                     
                 }
@@ -26,7 +33,7 @@ struct LoginScreen: View {
             
             
             Text("로그인")
-                .padding(.top, 20)
+                .padding(.top, 30)
                 .fontWeight(.bold)
                 .font(.system(size: 24))
                 
@@ -45,6 +52,8 @@ struct LoginScreen: View {
                 .padding()
                 .background(Color.blue)
                 .foregroundColor(Color.white)
+                .fontWeight(.bold)
+                .font(.system(size: 16))
                 .cornerRadius(5.0)
         })
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 30))
@@ -52,6 +61,13 @@ struct LoginScreen: View {
     }
 }
 
-#Preview {
-    LoginScreen()
+
+struct LoginScreen_Previews: PreviewProvider {
+    @State static var isShowLoginScreen: Bool = false
+    
+    static var previews: some View {
+        LoginScreen(isShowLoginScreen: $isShowLoginScreen)
+    }
 }
+
+

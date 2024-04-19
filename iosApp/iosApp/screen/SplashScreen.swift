@@ -33,7 +33,7 @@ struct SplashScreen: View {
                         isShowLoginScreen = true
                     })
                     .fullScreenCover(isPresented: $isShowLoginScreen, content: {
-                        LoginScreen()
+                        LoginScreen(isShowLoginScreen: $isShowLoginScreen)
                     })
                         .frame(maxWidth: .infinity)
                         .padding()
