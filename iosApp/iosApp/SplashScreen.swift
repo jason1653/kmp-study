@@ -11,6 +11,7 @@ import SwiftUI
 struct SplashScreen: View {
     @State var splashLoading = false
     @State var logoPaddingBottom: CGFloat = 0
+    @State private var isShowLoginScreen = false
     var body: some View {
         ZStack {
             VStack {
@@ -20,6 +21,7 @@ struct SplashScreen: View {
                     .foregroundColor(Color.white)
                     .font(.system(size: 28))
                     .fontWeight(.bold)
+                
                     
                 Spacer()
             }
@@ -28,13 +30,17 @@ struct SplashScreen: View {
                 
                 if splashLoading {
                     Button("시작하기", action: {
-                        print("OK")
+                        isShowLoginScreen = true
+                    })
+                    .fullScreenCover(isPresented: $isShowLoginScreen, content: {
+                        LoginScreen()
                     })
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(Color.white)
                         .cornerRadius(3.0)
                         .transition(.move(edge: .bottom).combined(with: .opacity))
+                        
                     Text("로그인")
                         .foregroundColor(Color.white)
                         .padding(.top, 20)

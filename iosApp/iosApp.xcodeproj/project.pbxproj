@@ -13,6 +13,8 @@
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		961239112BD1F628004D2FCE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961239102BD1F628004D2FCE /* SplashScreen.swift */; };
 		961239132BD1FE25004D2FCE /* SocialLoginIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961239122BD1FE25004D2FCE /* SocialLoginIcon.xcassets */; };
+		961239182BD24397004D2FCE /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961239172BD24397004D2FCE /* LoginScreen.swift */; };
+		9612391C2BD252F7004D2FCE /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612391B2BD252F7004D2FCE /* DefaultTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +39,8 @@
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		961239102BD1F628004D2FCE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		961239122BD1FE25004D2FCE /* SocialLoginIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SocialLoginIcon.xcassets; sourceTree = "<group>"; };
+		961239172BD24397004D2FCE /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		9612391B2BD252F7004D2FCE /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				961239192BD252CB004D2FCE /* widget */,
+				961239152BD24374004D2FCE /* screen */,
 				961239142BD1FE2B004D2FCE /* resource */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
@@ -102,6 +108,30 @@
 				961239122BD1FE25004D2FCE /* SocialLoginIcon.xcassets */,
 			);
 			path = resource;
+			sourceTree = "<group>";
+		};
+		961239152BD24374004D2FCE /* screen */ = {
+			isa = PBXGroup;
+			children = (
+				961239162BD24383004D2FCE /* auth */,
+			);
+			path = screen;
+			sourceTree = "<group>";
+		};
+		961239162BD24383004D2FCE /* auth */ = {
+			isa = PBXGroup;
+			children = (
+				961239172BD24397004D2FCE /* LoginScreen.swift */,
+			);
+			name = auth;
+			sourceTree = "<group>";
+		};
+		961239192BD252CB004D2FCE /* widget */ = {
+			isa = PBXGroup;
+			children = (
+				9612391B2BD252F7004D2FCE /* DefaultTextField.swift */,
+			);
+			path = widget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,7 +228,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				961239112BD1F628004D2FCE /* SplashScreen.swift in Sources */,
+				961239182BD24397004D2FCE /* LoginScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				9612391C2BD252F7004D2FCE /* DefaultTextField.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
