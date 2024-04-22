@@ -54,6 +54,12 @@ struct LoginScreen: View {
             
             Spacer()
             Button(action: {
+                print(loginViewModel.formState.emailError)
+                print(loginViewModel.formState.pwdError)
+                
+                if(loginViewModel.formState.emailError != nil || loginViewModel.formState.pwdError != nil) {
+                    print("오류가 발생되었습니다.")
+                }
             }) {
                 Text("로그인")
                     .frame(maxWidth: .infinity)

@@ -13,7 +13,7 @@ class LoginValidator {
                 ")+").toRegex()
 
     fun emailValidator(email: String): ValidationResult {
-        return if(email.contains("@")) {
+        return if(email.contains("@") && emailRegex.containsMatchIn(email)) {
             ValidationResult.Success
         } else {
             ValidationResult.Failure("이메일 형식이 올바르지 않습니다")
