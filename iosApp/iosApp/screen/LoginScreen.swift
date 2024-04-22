@@ -41,12 +41,12 @@ struct LoginScreen: View {
                 .font(.system(size: 24))
                 
             
-            DefaultTextField(label: "Email", titleKey: "email", secured: false, errorMessage: loginViewModel.formState.emailError, onChange: {
+            DefaultTextField(label: "Email", titleKey: "이메일을 입력해주세요", secured: false, errorMessage: loginViewModel.formState.emailError, onChange: {
                 loginViewModel.loginDataChanged(email: email, pwd: password)
             }, text: $email)
                 .padding(.top, 50)
             
-            DefaultTextField(label: "Password", titleKey: "password", secured: true, errorMessage: loginViewModel.formState.pwdError, onChange: {
+            DefaultTextField(label: "Password", titleKey: "패스워드를 입력해주세요", secured: true, errorMessage: loginViewModel.formState.pwdError, onChange: {
                 loginViewModel.loginDataChanged(email: email, pwd: password)
             }, text: $password)
                 .padding(.top, 20)
@@ -54,8 +54,6 @@ struct LoginScreen: View {
             
             Spacer()
             Button(action: {
-                print(loginViewModel.formState.emailError)
-                print(loginViewModel.formState.pwdError)
                 
                 if(loginViewModel.formState.emailError != nil || loginViewModel.formState.pwdError != nil) {
                     print("오류가 발생되었습니다.")

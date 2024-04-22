@@ -1,5 +1,5 @@
 //
-//  PrimaryButton.swift
+//  BorderButton.swift
 //  iosApp
 //
 //  Created by jason on 4/22/24.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct PrimaryButton: View {
+struct BorderButton: View {
     let title: String
     let action: () -> ()
     var body: some View {
@@ -17,6 +17,7 @@ struct PrimaryButton: View {
                 .frame(maxWidth: .infinity)
                 .padding()
                 .background(Color.white)
+                .border(Color("gray"))
                 .cornerRadius(3.0)
                 .foregroundColor(Color.black)
                 .transition(.move(edge: .bottom).combined(with: .opacity))
@@ -26,5 +27,5 @@ struct PrimaryButton: View {
 }
 
 #Preview {
-    PrimaryButton(title: "버튼", action: {})
+    BorderButton(title: "버튼", action: {})
 }

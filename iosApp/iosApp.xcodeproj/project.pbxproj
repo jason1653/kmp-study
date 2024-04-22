@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		960F8EAC2BD5FAA500C35A9F /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960F8EAB2BD5FAA500C35A9F /* LoginScreenViewModel.swift */; };
 		960F8EB02BD6086F00C35A9F /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960F8EAF2BD6086F00C35A9F /* PrimaryButton.swift */; };
 		960F8EB22BD6094F00C35A9F /* NonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960F8EB12BD6094F00C35A9F /* NonButton.swift */; };
+		960F8EB42BD60AF800C35A9F /* BorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960F8EB32BD60AF800C35A9F /* BorderButton.swift */; };
 		961239112BD1F628004D2FCE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961239102BD1F628004D2FCE /* SplashScreen.swift */; };
 		961239132BD1FE25004D2FCE /* SocialLoginIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961239122BD1FE25004D2FCE /* SocialLoginIcon.xcassets */; };
 		961239182BD24397004D2FCE /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961239172BD24397004D2FCE /* LoginScreen.swift */; };
@@ -43,6 +44,7 @@
 		960F8EAB2BD5FAA500C35A9F /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
 		960F8EAF2BD6086F00C35A9F /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		960F8EB12BD6094F00C35A9F /* NonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonButton.swift; sourceTree = "<group>"; };
+		960F8EB32BD60AF800C35A9F /* BorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderButton.swift; sourceTree = "<group>"; };
 		961239102BD1F628004D2FCE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		961239122BD1FE25004D2FCE /* SocialLoginIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SocialLoginIcon.xcassets; sourceTree = "<group>"; };
 		961239172BD24397004D2FCE /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				960F8EAF2BD6086F00C35A9F /* PrimaryButton.swift */,
 				960F8EB12BD6094F00C35A9F /* NonButton.swift */,
+				960F8EB32BD60AF800C35A9F /* BorderButton.swift */,
 			);
 			path = button;
 			sourceTree = "<group>";
@@ -187,8 +190,9 @@
 		7555FF73242A565900829871 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1520;
 				ORGANIZATIONNAME = orgName;
 				TargetAttributes = {
 					7555FF7A242A565900829871 = {
@@ -254,6 +258,7 @@
 			files = (
 				961239112BD1F628004D2FCE /* SplashScreen.swift in Sources */,
 				960F8EB22BD6094F00C35A9F /* NonButton.swift in Sources */,
+				960F8EB42BD60AF800C35A9F /* BorderButton.swift in Sources */,
 				961239182BD24397004D2FCE /* LoginScreen.swift in Sources */,
 				960F8EAC2BD5FAA500C35A9F /* LoginScreenViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
@@ -303,6 +308,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -364,6 +370,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
