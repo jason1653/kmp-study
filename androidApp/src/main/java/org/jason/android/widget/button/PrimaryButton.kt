@@ -25,7 +25,7 @@ fun PrimaryButton(
     Button(
         modifier =
         Modifier
-            .padding(start = 10.dp, end = 10.dp)
+            .padding()
             .fillMaxWidth()
             .height(50.dp),
         onClick = {},

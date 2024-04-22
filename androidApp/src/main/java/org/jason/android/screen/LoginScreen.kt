@@ -32,6 +32,7 @@ import org.jason.android.widget.textfield.DefaultTextField
 @Composable
 fun LoginScreen() {
     val email = remember { mutableStateOf("") }
+    val passwd = remember { mutableStateOf("") }
 
 
     Box(
@@ -69,7 +70,7 @@ fun LoginScreen() {
 
             Text(
                 text = "로그인",
-                style = TextStyle(fontSize = 16.sp, fontWeight = FontWeight.W700),
+                style = TextStyle(fontSize = 18.sp, fontWeight = FontWeight.W700),
                 modifier = Modifier.padding(top = 30.dp)
             )
 
@@ -88,7 +89,7 @@ fun LoginScreen() {
                 titleKey = "패스워드를 입력해주세요",
                 secured = true,
                 errorMessage = "",
-                text = email,
+                text = passwd,
                 modifier = Modifier.padding(top = 20.dp)
             )
 

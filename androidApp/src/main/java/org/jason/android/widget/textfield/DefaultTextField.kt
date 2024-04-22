@@ -58,9 +58,9 @@ fun DefaultTextField(
 
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(top = 8.dp),
+                .padding(top = 5.dp),
 
-            shape = RoundedCornerShape(8.dp),
+            shape = RoundedCornerShape(5.dp),
             colors = OutlinedTextFieldDefaults.colors(
                 focusedContainerColor = Color.White,
                 unfocusedContainerColor = Color.White,
