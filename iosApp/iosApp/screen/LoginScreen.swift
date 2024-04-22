@@ -12,6 +12,9 @@ struct LoginScreen: View {
     @Binding var isShowLoginScreen: Bool
     @State private var email: String = ""
     @State private var password: String = ""
+    
+    @ObservedObject var loginViewModel: LoginScreen.ViewModel = LoginScreen.ViewModel()
+    
     var body: some View {
         VStack(alignment: .leading, content: {
             HStack {
@@ -38,10 +41,14 @@ struct LoginScreen: View {
                 .font(.system(size: 24))
                 
             
-            DefaultTextField(label: "Email", titleKey: "email", secured: false, onChange: {}, text: $email)
+            DefaultTextField(label: "Email", titleKey: "email", secured: false, errorMessage: loginViewModel.formState.emailError, onChange: {
+                loginViewModel.loginDataChanged(email: email, pwd: password)
+            }, text: $email)
                 .padding(.top, 50)
             
-            DefaultTextField(label: "Password", titleKey: "password", secured: true, onChange: {}, text: $password)
+            DefaultTextField(label: "Password", titleKey: "password", secured: true, errorMessage: loginViewModel.formState.pwdError, onChange: {
+                loginViewModel.loginDataChanged(email: email, pwd: password)
+            }, text: $password)
                 .padding(.top, 20)
 
             

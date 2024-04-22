@@ -11,6 +11,7 @@
 		058557D9273AAEEB004C7B11 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */; };
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		960F8EAC2BD5FAA500C35A9F /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 960F8EAB2BD5FAA500C35A9F /* LoginScreenViewModel.swift */; };
 		961239112BD1F628004D2FCE /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961239102BD1F628004D2FCE /* SplashScreen.swift */; };
 		961239132BD1FE25004D2FCE /* SocialLoginIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961239122BD1FE25004D2FCE /* SocialLoginIcon.xcassets */; };
 		961239182BD24397004D2FCE /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961239172BD24397004D2FCE /* LoginScreen.swift */; };
@@ -37,6 +38,7 @@
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		960F8EAB2BD5FAA500C35A9F /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
 		961239102BD1F628004D2FCE /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		961239122BD1FE25004D2FCE /* SocialLoginIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = SocialLoginIcon.xcassets; sourceTree = "<group>"; };
 		961239172BD24397004D2FCE /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				961239172BD24397004D2FCE /* LoginScreen.swift */,
+				960F8EAB2BD5FAA500C35A9F /* LoginScreenViewModel.swift */,
 			);
 			name = auth;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			files = (
 				961239112BD1F628004D2FCE /* SplashScreen.swift in Sources */,
 				961239182BD24397004D2FCE /* LoginScreen.swift in Sources */,
+				960F8EAC2BD5FAA500C35A9F /* LoginScreenViewModel.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				9612391C2BD252F7004D2FCE /* DefaultTextField.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
