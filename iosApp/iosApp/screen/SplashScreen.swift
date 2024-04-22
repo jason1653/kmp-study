@@ -29,25 +29,19 @@ struct SplashScreen: View {
                 Spacer()
                 
                 if splashLoading {
-                    Button(action: {
+                    
+                    PrimaryButton(title: "회원가입", action: {
                         isShowLoginScreen = true
-                    }) {
-                        Text("회원가입")
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(3.0)
-                            .transition(.move(edge: .bottom).combined(with: .opacity))
-
-                    }
-                    .fullScreenCover(isPresented: $isShowLoginScreen, content: {
+                    }).fullScreenCover(isPresented: $isShowLoginScreen, content: {
                         LoginScreen(isShowLoginScreen: $isShowLoginScreen)
                     })
-                        
-                    Text("로그인")
-                        .foregroundColor(Color.white)
-                        .padding(.top, 20)
-                        .transition(.move(edge: .bottom).combined(with: .opacity))
+                       
+                    
+                    NonButton(title: "로그인", action: {
+                        isShowLoginScreen = true
+                    }).fullScreenCover(isPresented: $isShowLoginScreen, content: {
+                        LoginScreen(isShowLoginScreen: $isShowLoginScreen)
+                    })
                     Divider()
                         .overlay(Color.white)
                         .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
