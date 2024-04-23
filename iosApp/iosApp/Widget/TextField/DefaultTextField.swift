@@ -12,7 +12,7 @@ struct DefaultTextField: View {
     let label: String
     let titleKey: String
     let secured: Bool
-    let errorMessage: String?
+    @Binding var errorMessage: String
     let onChange: () -> ()
     
     @Binding var text: String
@@ -35,7 +35,7 @@ struct DefaultTextField: View {
                 .fontWeight(.bold)
                 .font(.system(size: 16))
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundColor(errorMessage != nil && !text.isEmpty ? .red : .primary)
+                .foregroundColor(!errorMessage.isEmpty ? .red : .primary)
                 
             
             textField
@@ -46,9 +46,9 @@ struct DefaultTextField: View {
                 }
                 .overlay {
                     RoundedRectangle(cornerRadius: 5)
-                        .stroke(isFocused ? Color.blue : Color("gray"), lineWidth: isFocused ? 2 : 1)
+                        .stroke(!errorMessage.isEmpty ? Color.red : Color("gray"), lineWidth: !errorMessage.isEmpty ? 2 : 1)
                 }
-            if errorMessage != nil && !text.isEmpty {
+            if !errorMessage.isEmpty {
                 Text(errorMessage ?? "")
                     .fontWeight(.bold)
                     .font(.system(size: 12))
@@ -64,8 +64,9 @@ struct DefaultTextField: View {
 
 struct DefaultTextField_Previews: PreviewProvider {
     @State static var userId: String = ""
+    @State static var errorMessage: String = ""
     
     static var previews: some View {
-        DefaultTextField(label: "Email", titleKey: "Username", secured: false, errorMessage: "", onChange: {}, text: $userId)
+        DefaultTextField(label: "Email", titleKey: "Username", secured: false, errorMessage: $errorMessage, onChange: {}, text: $userId)
     }
 }

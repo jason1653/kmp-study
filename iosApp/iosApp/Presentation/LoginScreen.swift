@@ -16,44 +16,40 @@ struct LoginScreen: View {
     
     
     var body: some View {
-        VStack(alignment: .leading, content: {
+        
+        VStack(alignment: .leading) {
             HStack {
                 Button(action: {
                     isShowLoginScreen = false
                 }) {
-                    HStack {
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 15, height: 15)
-                            .foregroundColor(.black)
-                    }
-                                    
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 15, height: 15)
+                        .foregroundColor(.black)
                 }
                 .padding(.top, 20)
                 Spacer()
             }
-            
-            
+
             Text("로그인")
-                .padding(.top, 30)
                 .fontWeight(.bold)
                 .font(.system(size: 24))
-                
+                .padding(.top, 30)
             
-            DefaultTextField(label: "Email", titleKey: "이메일을 입력해주세요", secured: false, errorMessage: "", onChange: {
+            DefaultTextField(label: "Email", titleKey: "이메일을 입력해주세요", secured: false, errorMessage: $viewModel.emailMessage, onChange: {
+                viewModel.emailValidator()
             }, text: $viewModel.email)
                 .padding(.top, 50)
+                .padding(.bottom, 30)
             
-            DefaultTextField(label: "Password", titleKey: "패스워드를 입력해주세요", secured: true, errorMessage: "", onChange: {
+            DefaultTextField(label: "Password", titleKey: "패스워드를 입력해주세요", secured: true, errorMessage: $viewModel.passwdMessage, onChange: {
+                viewModel.passwdValidator()
             }, text: $viewModel.passwd)
-                .padding(.top, 20)
 
-            
             Spacer()
             Button(action: {
-                
-               
+                viewModel.loginProcess()
             }) {
                 Text("로그인")
                     .frame(maxWidth: .infinity)
@@ -64,9 +60,8 @@ struct LoginScreen: View {
                     .font(.system(size: 16))
                     .cornerRadius(5.0)
             }
-        })
-        .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 30))
-        
+        }
+        .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
     }
 }
 

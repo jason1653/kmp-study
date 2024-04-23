@@ -16,17 +16,13 @@ class LoginValidator {
         return if(email.contains("@") && emailRegex.containsMatchIn(email)) {
             ValidatorResult()
         } else {
-            ValidatorResult(
-                false,
-                "이메일 형식이 올바르지 않습니다"
-            )
+            ValidatorResult("이메일 형식이 올바르지 않습니다")
         }
     }
 
     fun passwdValidator(passwd: String): ValidatorResult {
         return when {
-            passwd.length < 5 -> ValidatorResult(false, "패스워드는 5자 이상이여야 합니다")
-
+            passwd.length < 5 -> ValidatorResult("패스워드는 5자 이상이여야 합니다")
             else -> ValidatorResult()
         }
     }
