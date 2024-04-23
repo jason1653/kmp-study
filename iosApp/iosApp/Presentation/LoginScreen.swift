@@ -10,10 +10,10 @@ import SwiftUI
 
 struct LoginScreen: View {
     @Binding var isShowLoginScreen: Bool
-    @State private var email: String = ""
-    @State private var password: String = ""
     
-    @ObservedObject var loginViewModel: LoginScreen.ViewModel = LoginScreen.ViewModel()
+    @ObservedObject var viewModel: LoginViewModel = LoginViewModel()
+    
+    
     
     var body: some View {
         VStack(alignment: .leading, content: {
@@ -41,23 +41,19 @@ struct LoginScreen: View {
                 .font(.system(size: 24))
                 
             
-            DefaultTextField(label: "Email", titleKey: "이메일을 입력해주세요", secured: false, errorMessage: loginViewModel.formState.emailError, onChange: {
-                loginViewModel.loginDataChanged(email: email, pwd: password)
-            }, text: $email)
+            DefaultTextField(label: "Email", titleKey: "이메일을 입력해주세요", secured: false, errorMessage: "", onChange: {
+            }, text: $viewModel.email)
                 .padding(.top, 50)
             
-            DefaultTextField(label: "Password", titleKey: "패스워드를 입력해주세요", secured: true, errorMessage: loginViewModel.formState.pwdError, onChange: {
-                loginViewModel.loginDataChanged(email: email, pwd: password)
-            }, text: $password)
+            DefaultTextField(label: "Password", titleKey: "패스워드를 입력해주세요", secured: true, errorMessage: "", onChange: {
+            }, text: $viewModel.passwd)
                 .padding(.top, 20)
 
             
             Spacer()
             Button(action: {
                 
-                if(loginViewModel.formState.emailError != nil || loginViewModel.formState.pwdError != nil) {
-                    print("오류가 발생되었습니다.")
-                }
+               
             }) {
                 Text("로그인")
                     .frame(maxWidth: .infinity)
@@ -73,6 +69,9 @@ struct LoginScreen: View {
         
     }
 }
+
+
+
 
 
 struct LoginScreen_Previews: PreviewProvider {

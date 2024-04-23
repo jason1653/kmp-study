@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import org.jason.domain.auth.LoginValidator
-import org.jason.utils.validator.ValidationResult
 
 class LoginScreenViewModel: ViewModel() {
     private val loginValidation: LoginValidator = LoginValidator()
