@@ -51,7 +51,9 @@ struct LoginScreen: View {
                 
                 Spacer()
                 Button(action: {
-                    viewModel.loginProcess()
+                    Task {                        
+                        await viewModel.loginProcess()
+                    }
                 }) {
                     Text("로그인")
                         .frame(maxWidth: .infinity)

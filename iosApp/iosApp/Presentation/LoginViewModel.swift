@@ -9,6 +9,7 @@
 import Foundation
 import shared
 
+@MainActor
 class LoginViewModel: ObservableObject {
     @Published var email: String = ""
     @Published var passwd: String = ""
@@ -38,10 +39,12 @@ class LoginViewModel: ObservableObject {
     }
     
     
-    func loginProcess() {
+    func loginProcess() async {
         isLoading = true
+        
+        /*
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.memberService.adminUserList(){ result, error in
+            self.memberService.existsUserId(userId: ""){ result, error in
                 defer {
                     DispatchQueue.main.async {
                         self.isLoading = false  // 메인 스레드에서 로딩 상태 업데이트
@@ -49,14 +52,19 @@ class LoginViewModel: ObservableObject {
                 }
                 if let result = result {
                     print("데이터 가져오기")
-                    print(result.body?.total)
-                    print(result.body?.totalPage)
-                    print(result.body?.users)
                     
                 } else {
                     print(error)
                 }
             }
+        }
+         */
+        do {
+            let exists = try await memberService.existsUserId(userId: "")
+            print("성공")
+        } catch let error as NSError {
+            print("오류 - catch")
+            print(error.localizedDescription)
         }
 
 
