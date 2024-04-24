@@ -89,7 +89,6 @@ fun LoginScreen() {
                 modifier = Modifier.padding(top = 50.dp)
             ) {
                 email = it
-                loginViewModel.loginDataChanged(email, passwd)
             }
 
 
@@ -102,7 +101,6 @@ fun LoginScreen() {
                 modifier = Modifier.padding(top = 20.dp)
             ) {
                 passwd = it
-                loginViewModel.loginDataChanged(email, passwd)
             }
 
 

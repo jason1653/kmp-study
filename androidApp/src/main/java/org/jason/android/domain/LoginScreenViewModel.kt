@@ -11,13 +11,4 @@ class LoginScreenViewModel: ViewModel() {
 
     var formState by mutableStateOf(LoginFormState())
 
-    fun loginDataChanged(email: String, passwd: String) {
-        val emailError = (loginValidation.emailValidator(email) as ValidationResult.Failure).message
-        val passwdError = (loginValidation.passwdValidator(passwd) as ValidationResult.Failure).message
-
-        formState = LoginFormState(
-            emailError = emailError,
-            passwordError = passwdError
-        )
-    }
 }
