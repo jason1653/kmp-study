@@ -20,6 +20,7 @@
 		9612391C2BD252F7004D2FCE /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9612391B2BD252F7004D2FCE /* DefaultTextField.swift */; };
 		965487662BD750DF00D2A21C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965487652BD750DF00D2A21C /* LoginViewModel.swift */; };
 		96948E882BD8A75100EECB4F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96948E872BD8A75100EECB4F /* LoadingView.swift */; };
+		96948E8B2BD907FC00EECB4F /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96948E8A2BD907FC00EECB4F /* ErrorHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -51,6 +52,7 @@
 		9612391B2BD252F7004D2FCE /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
 		965487652BD750DF00D2A21C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		96948E872BD8A75100EECB4F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		96948E8A2BD907FC00EECB4F /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				96948E892BD907E800EECB4F /* Common */,
 				961239192BD252CB004D2FCE /* Widget */,
 				961239152BD24374004D2FCE /* Presentation */,
 				961239142BD1FE2B004D2FCE /* resource */,
@@ -187,6 +190,14 @@
 				96948E872BD8A75100EECB4F /* LoadingView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		96948E892BD907E800EECB4F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				96948E8A2BD907FC00EECB4F /* ErrorHandler.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +298,7 @@
 				960F8EB22BD6094F00C35A9F /* NonButton.swift in Sources */,
 				960F8EB42BD60AF800C35A9F /* BorderButton.swift in Sources */,
 				96948E882BD8A75100EECB4F /* LoadingView.swift in Sources */,
+				96948E8B2BD907FC00EECB4F /* ErrorHandler.swift in Sources */,
 				961239182BD24397004D2FCE /* LoginScreen.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
 				960F8EB02BD6086F00C35A9F /* PrimaryButton.swift in Sources */,

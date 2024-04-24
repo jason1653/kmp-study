@@ -51,13 +51,15 @@ class LoginViewModel: ObservableObject {
             email: "saga1654@naver.com"
         )
         
-        do {
-            let response = try await memberService.createUser(body: createUserRequest)
-            print("성공")
-        } catch let error as NSError {
-            print("오류 - catch")
-            print(error.localizedDescription)
+        ErrorHandler.handle({
+            try await self.memberService.createUser(body: createUserRequest)
+        }) { response, error in
+            
+            print(response)
+            
         }
+        
+        
     }
     
     
