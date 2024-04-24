@@ -5,6 +5,7 @@ import io.ktor.client.call.body
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.HttpTimeout
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.DEFAULT
@@ -17,9 +18,11 @@ import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.request.put
 import io.ktor.client.statement.HttpResponse
+import io.ktor.client.statement.bodyAsText
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.contentType
+import io.ktor.serialization.kotlinx.json.json
 import io.ktor.util.InternalAPI
 
 class HttpClientManager {
@@ -27,6 +30,9 @@ class HttpClientManager {
 
 
     val client: HttpClient = HttpClient(CIO) {
+        install(ContentNegotiation) {
+            json()
+        }
 
         install (Logging) {
             logger = Logger.DEFAULT
@@ -39,13 +45,18 @@ class HttpClientManager {
         }
 
         install(DefaultRequest) {
+            url(baseURL)
             header(HttpHeaders.ContentType, ContentType.Application.Json)
         }
 
     }
 
-    suspend fun get(endpoint: String): HttpResponse {
-        return client.get(endpoint)
+    @Throws(Exception::class)
+    suspend inline fun <reified T> get(endpoint: String): T {
+
+        val response = client.get(endpoint)
+        print(response.body())
+        return response.body()
     }
 
     suspend fun post(endpoint: String, body: Any): HttpResponse {

@@ -17,7 +17,10 @@ class LoginViewModel: ObservableObject {
     @Published var passwdMessage: String = ""
     @Published var isValid: Bool = false
     
+    
+    
     private let loginValidator = LoginValidator()
+    private let memberService = MemberService()
     
     func emailValidator() {
         isValid = false
@@ -36,6 +39,15 @@ class LoginViewModel: ObservableObject {
     
     
     func loginProcess() {
+        
+        memberService.adminUserList(){ result, error in
+            print("데이터 가져오기")
+            print(result?.body?.total)
+            print(result?.body?.totalPage)
+            print(result?.body?.users)
+            print(error)
+        }
+
 
         emailValidator()
         passwdValidator()
