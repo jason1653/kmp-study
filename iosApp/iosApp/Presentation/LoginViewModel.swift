@@ -16,7 +16,7 @@ class LoginViewModel: ObservableObject {
     @Published var emailMessage: String = ""
     @Published var passwdMessage: String = ""
     @Published var isValid: Bool = false
-    
+    @Published var isLoading: Bool = false
     
     
     private let loginValidator = LoginValidator()
@@ -39,13 +39,24 @@ class LoginViewModel: ObservableObject {
     
     
     func loginProcess() {
-        
-        memberService.adminUserList(){ result, error in
-            print("데이터 가져오기")
-            print(result?.body?.total)
-            print(result?.body?.totalPage)
-            print(result?.body?.users)
-            print(error)
+        isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.memberService.adminUserList(){ result, error in
+                defer {
+                    DispatchQueue.main.async {
+                        self.isLoading = false  // 메인 스레드에서 로딩 상태 업데이트
+                    }
+                }
+                if let result = result {
+                    print("데이터 가져오기")
+                    print(result.body?.total)
+                    print(result.body?.totalPage)
+                    print(result.body?.users)
+                    
+                } else {
+                    print(error)
+                }
+            }
         }
 
 
