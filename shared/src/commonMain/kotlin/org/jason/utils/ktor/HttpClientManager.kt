@@ -1,7 +1,11 @@
 package org.jason.utils.ktor
 
 import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.engine.cio.CIO
+import io.ktor.client.plugins.DefaultRequest
 import io.ktor.client.plugins.HttpTimeout
+
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.plugins.logging.DEFAULT
 import io.ktor.client.plugins.logging.LogLevel
@@ -9,17 +13,20 @@ import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.request.delete
 import io.ktor.client.request.get
+import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.request.put
 import io.ktor.client.statement.HttpResponse
+import io.ktor.http.ContentType
+import io.ktor.http.HttpHeaders
 import io.ktor.http.contentType
 import io.ktor.util.InternalAPI
 
 class HttpClientManager {
-    private val baseURL = ""
+    private val baseURL = "http://localhost:8081"
 
 
-    val client: HttpClient = HttpClient {
+    val client: HttpClient = HttpClient(CIO) {
 
         install (Logging) {
             logger = Logger.DEFAULT
@@ -31,9 +38,10 @@ class HttpClientManager {
             socketTimeoutMillis = 30000
         }
 
-        defaultRequest {
-            url(baseURL)
+        install(DefaultRequest) {
+            header(HttpHeaders.ContentType, ContentType.Application.Json)
         }
+
     }
 
     suspend fun get(endpoint: String): HttpResponse {
@@ -41,9 +49,7 @@ class HttpClientManager {
     }
 
     suspend fun post(endpoint: String, body: Any): HttpResponse {
-        return client.post(endpoint) {
-            contentType(io.ktor.http.ContentType.Application.Json)
-        }
+        return client.post(endpoint)
     }
     suspend fun put(endpoint: String): HttpResponse {
         return client.put(endpoint)
