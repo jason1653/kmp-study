@@ -20,14 +20,20 @@ import io.ktor.client.request.get
 import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.request.put
+import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
 import io.ktor.client.statement.bodyAsText
 import io.ktor.client.statement.readText
+import io.ktor.http.ContentDisposition
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
+import io.ktor.http.Parameters
+import io.ktor.http.ParametersBuilder
 import io.ktor.http.contentType
 import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
 
@@ -83,15 +89,18 @@ class HttpClientManager {
     }
 
     @Throws(Exception::class)
-    suspend inline fun <reified T> get(endpoint: String): T {
-
-        val response = client.get(endpoint)
-        print(response.body())
-        return response.body()
+    suspend inline fun <reified R> get(endpoint: String, query: Parameters? = null): R {
+        return client.get(endpoint) {
+            if (query != null) {
+                url.parameters.appendAll(query)
+            }
+        }.body()
     }
 
-    suspend fun post(endpoint: String, body: Any): HttpResponse {
-        return client.post(endpoint)
+    suspend inline fun <reified T, reified R>  post(endpoint: String, requestBody: T): R {
+        return client.post(endpoint) {
+            setBody(requestBody)
+        }.body()
     }
     suspend fun put(endpoint: String): HttpResponse {
         return client.put(endpoint)
@@ -100,4 +109,8 @@ class HttpClientManager {
     suspend fun delete(endpoint: String): HttpResponse {
         return client.delete(endpoint)
     }
+
+
+
+
 }

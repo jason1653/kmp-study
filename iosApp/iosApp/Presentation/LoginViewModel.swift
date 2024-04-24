@@ -38,12 +38,34 @@ class LoginViewModel: ObservableObject {
         isValid = true
     }
     
+    func createUserProcess() async {
+        let createUserRequest = CreateUserRequest(
+            userName: "테스트23",
+            phoneNumber: "010-7442-2662",
+            gender: "M",
+            birthDate: "19810627",
+            userId: "saga165181111",
+            nickName: "테스트2727272",
+            userPwd: "Test!$2233",
+            userPwdConfirm: "Test!$2233",
+            email: "saga1654@naver.com"
+        )
+        
+        do {
+            let response = try await memberService.createUser(body: createUserRequest)
+            print("성공")
+        } catch let error as NSError {
+            print("오류 - catch")
+            print(error.localizedDescription)
+        }
+    }
+    
     
     func loginProcess() async {
         isLoading = true
 
         do {
-            let exists = try await memberService.existsUserId(userId: "")
+            let exists = try await memberService.existsUserId(userId: "test")
             print("성공")
         } catch let error as NSError {
             print("오류 - catch")

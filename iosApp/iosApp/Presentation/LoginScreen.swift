@@ -52,7 +52,8 @@ struct LoginScreen: View {
                 Spacer()
                 Button(action: {
                     Task {                        
-                        await viewModel.loginProcess()
+//                        await viewModel.loginProcess()
+                        await viewModel.createUserProcess()
                     }
                 }) {
                     Text("로그인")
