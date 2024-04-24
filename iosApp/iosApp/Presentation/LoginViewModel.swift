@@ -41,24 +41,7 @@ class LoginViewModel: ObservableObject {
     
     func loginProcess() async {
         isLoading = true
-        
-        /*
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.memberService.existsUserId(userId: ""){ result, error in
-                defer {
-                    DispatchQueue.main.async {
-                        self.isLoading = false  // 메인 스레드에서 로딩 상태 업데이트
-                    }
-                }
-                if let result = result {
-                    print("데이터 가져오기")
-                    
-                } else {
-                    print(error)
-                }
-            }
-        }
-         */
+
         do {
             let exists = try await memberService.existsUserId(userId: "")
             print("성공")
