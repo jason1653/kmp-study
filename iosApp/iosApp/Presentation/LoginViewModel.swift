@@ -62,7 +62,6 @@ class LoginViewModel: ObservableObject {
             } else if let error = error {
                 print("오류 발생")
             }
-            print(response)
             
         }
         
@@ -75,6 +74,7 @@ class LoginViewModel: ObservableObject {
 
         do {
             let exists = try await memberService.existsUserId(userId: "test")
+            print(exists)
             print("성공")
         } catch let error as NSError {
             print("오류 - catch")

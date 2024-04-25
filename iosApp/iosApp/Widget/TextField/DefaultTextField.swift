@@ -49,7 +49,7 @@ struct DefaultTextField: View {
                         .stroke(!errorMessage.isEmpty ? Color.red : Color("gray"), lineWidth: !errorMessage.isEmpty ? 2 : 1)
                 }
             if !errorMessage.isEmpty {
-                Text(errorMessage ?? "")
+                Text(errorMessage)
                     .fontWeight(.bold)
                     .font(.system(size: 12))
                     .frame(maxWidth: .infinity, alignment: .leading)
