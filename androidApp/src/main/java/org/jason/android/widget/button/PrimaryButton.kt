@@ -28,7 +28,7 @@ fun PrimaryButton(
             .padding()
             .fillMaxWidth()
             .height(50.dp),
-        onClick = {},
+        onClick = onClick,
         shape = RoundedCornerShape(5.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = colorResource(id = R.color.primary),

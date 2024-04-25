@@ -1,6 +1,7 @@
 package org.jason.android.screen
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
@@ -18,6 +19,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -38,10 +40,14 @@ import org.jason.android.widget.textfield.DefaultTextField
 @Composable
 fun LoginScreen() {
     val loginViewModel: LoginScreenViewModel = LoginScreenViewModel()
-    var email by remember { mutableStateOf("") }
-    var passwd by remember { mutableStateOf("") }
 
-    val formState = loginViewModel.formState
+    var email by remember {
+        mutableStateOf("")
+    }
+    var password by remember { mutableStateOf("") }
+    val emailMessage by remember { mutableStateOf("") }
+    val passwordMessage by remember { mutableStateOf("") }
+    val isLoading by remember { mutableStateOf(false) }
 
 
     Box(
@@ -87,23 +93,23 @@ fun LoginScreen() {
                 label = "Email",
                 titleKey = "이메일을 입력해주세요",
                 secured = false,
-                errorMessage = formState.emailError,
-                text = email,
-                modifier = Modifier.padding(top = 50.dp)
-            ) {
-                email = it
-            }
+                errorMessage = emailMessage,
+                text = loginViewModel.email,
+                modifier = Modifier.padding(top = 50.dp),
+                onValueChange = loginViewModel::updateEmail
+            )
 
 
             DefaultTextField(
                 label = "Password",
                 titleKey = "패스워드를 입력해주세요",
                 secured = true,
-                errorMessage = formState.passwordError,
-                text = passwd,
+                errorMessage = passwordMessage,
+                text = password,
                 modifier = Modifier.padding(top = 20.dp)
             ) {
-                passwd = it
+                password = it
+                loginViewModel.password = it
             }
 
 
@@ -113,7 +119,8 @@ fun LoginScreen() {
             PrimaryButton(
                 label = "로그인",
                 onClick = {
-                    println("OK")
+                    Log.d("TEST", "클릭")
+                    loginViewModel.validateEmail()
                 }
             )
         }
@@ -122,6 +129,7 @@ fun LoginScreen() {
 
     }
 }
+
 
 @Composable
 @Preview
