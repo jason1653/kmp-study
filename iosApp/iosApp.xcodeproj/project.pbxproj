@@ -21,6 +21,7 @@
 		965487662BD750DF00D2A21C /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 965487652BD750DF00D2A21C /* LoginViewModel.swift */; };
 		96948E882BD8A75100EECB4F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96948E872BD8A75100EECB4F /* LoadingView.swift */; };
 		96948E8B2BD907FC00EECB4F /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96948E8A2BD907FC00EECB4F /* ErrorHandler.swift */; };
+		96AE47152BDA224B00B44D6B /* APIErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE47142BDA224B00B44D6B /* APIErrorResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,6 +54,7 @@
 		965487652BD750DF00D2A21C /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		96948E872BD8A75100EECB4F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		96948E8A2BD907FC00EECB4F /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		96AE47142BDA224B00B44D6B /* APIErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				96948E8A2BD907FC00EECB4F /* ErrorHandler.swift */,
+				96AE47142BDA224B00B44D6B /* APIErrorResponse.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				961239112BD1F628004D2FCE /* SplashScreen.swift in Sources */,
 				960F8EB22BD6094F00C35A9F /* NonButton.swift in Sources */,
 				960F8EB42BD60AF800C35A9F /* BorderButton.swift in Sources */,
+				96AE47152BDA224B00B44D6B /* APIErrorResponse.swift in Sources */,
 				96948E882BD8A75100EECB4F /* LoadingView.swift in Sources */,
 				96948E8B2BD907FC00EECB4F /* ErrorHandler.swift in Sources */,
 				961239182BD24397004D2FCE /* LoginScreen.swift in Sources */,

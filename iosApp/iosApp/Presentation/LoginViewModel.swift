@@ -54,7 +54,7 @@ class LoginViewModel: ObservableObject {
         ErrorHandler.handle({
             try await self.memberService.createUser(body: createUserRequest)
         }) { response, error in
-            
+            print(error)
             print(response)
             
         }
@@ -71,6 +71,7 @@ class LoginViewModel: ObservableObject {
             print("성공")
         } catch let error as NSError {
             print("오류 - catch")
+            print(error)
             print(error.localizedDescription)
         }
 

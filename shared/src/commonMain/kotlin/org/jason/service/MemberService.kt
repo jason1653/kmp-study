@@ -5,7 +5,9 @@ import org.jason.domain.admin.users.request.CreateUserRequest
 import org.jason.domain.admin.users.UserListData
 import org.jason.domain.admin.users.response.CreateUserResponse
 import org.jason.utils.ktor.ApiResponse
+import org.jason.utils.ktor.ErrorResponseException
 import org.jason.utils.ktor.HttpClientManager
+import kotlin.coroutines.cancellation.CancellationException
 
 class MemberService {
     val client = HttpClientManager()
@@ -16,7 +18,7 @@ class MemberService {
         val queryParams = Parameters.build {
             append("userId", userId)
         }
-        return client.get<ApiResponse<Boolean>>("/member-service/users/exists-userId", queryParams)
+        return client.get<Boolean>("/member-service/users/exists-userId", queryParams)
     }
 
     @Throws(Exception::class)
@@ -26,6 +28,6 @@ class MemberService {
 
     @Throws(Exception::class)
     suspend fun adminUserList(): ApiResponse<UserListData> {
-        return client.get<ApiResponse<UserListData>>("/admin/member-service/users?page=1&pageSize=10")
+        return client.get<UserListData>("/admin/member-service/users?page=1&pageSize=10")
     }
 }

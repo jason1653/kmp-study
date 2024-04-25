@@ -16,8 +16,40 @@ class ErrorHandler {
                 let result = try await asyncOperation()
                 completion(result, nil)
             } catch {
-                completion(nil, error)
+                print("catch 오류 처리")
+                
+                // Extract and parse JSON error message from error.localizedDescription
+                if let jsonErrorString = extractJSONText(from: error.localizedDescription) {
+                    if let apiError = parseJSONError(from: jsonErrorString) {
+                        print("API Error: \(apiError.message)")
+                        completion(nil, apiError)
+                    } else {
+                        // Handle case where JSON parsing fails
+                        print("Failed to parse JSON error message")
+                        completion(nil, error)
+                    }
+                } else {
+                    // If no JSON string is found, handle the original error
+                    print(error.localizedDescription)
+                    completion(nil, error)
+                }
+                
             }
         }
+    }
+    
+    private static func extractJSONText(from text: String) -> String? {
+       let pattern = #"\. Text: "(.*?)"$"#  // Regular expression to find the JSON string
+       if let regex = try? NSRegularExpression(pattern: pattern, options: []),
+          let match = regex.firstMatch(in: text, options: [], range: NSRange(text.startIndex..., in: text)),
+          let range = Range(match.range(at: 1), in: text) {
+           return String(text[range])
+       }
+       return nil
+   }
+
+    private static func parseJSONError(from jsonString: String) -> APIErrorResponse? {
+        guard let data = jsonString.data(using: .utf8) else { return nil }
+        return try? JSONDecoder().decode(APIErrorResponse.self, from: data)
     }
 }

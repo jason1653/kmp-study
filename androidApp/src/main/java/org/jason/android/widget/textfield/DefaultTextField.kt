@@ -1,5 +1,6 @@
 package org.jason.android.widget.textfield
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -45,7 +46,11 @@ fun DefaultTextField(
 
         OutlinedTextField(
             value = text,
-            onValueChange = { onValueChange(it) },
+            onValueChange = {
+                Log.d("TEST", it)
+                Log.d("TEST", "TextField 입력")
+                onValueChange(it)
+            },
             placeholder = { Text(text = titleKey) },
             singleLine = true,
             visualTransformation = if (secured) PasswordVisualTransformation() else VisualTransformation.None,

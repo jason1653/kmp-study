@@ -41,9 +41,7 @@ import org.jason.android.widget.textfield.DefaultTextField
 fun LoginScreen() {
     val loginViewModel: LoginScreenViewModel = LoginScreenViewModel()
 
-    var email by remember {
-        mutableStateOf("")
-    }
+    val email = loginViewModel.email
     var password by remember { mutableStateOf("") }
     val emailMessage by remember { mutableStateOf("") }
     val passwordMessage by remember { mutableStateOf("") }
@@ -94,9 +92,10 @@ fun LoginScreen() {
                 titleKey = "이메일을 입력해주세요",
                 secured = false,
                 errorMessage = emailMessage,
-                text = loginViewModel.email,
+                text = email,
                 modifier = Modifier.padding(top = 50.dp),
                 onValueChange = loginViewModel::updateEmail
+
             )
 
 
