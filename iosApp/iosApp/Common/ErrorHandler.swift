@@ -18,20 +18,14 @@ class ErrorHandler {
             } catch {
                 print("catch 오류 처리")
                 
-                // Extract and parse JSON error message from error.localizedDescription
-                if let jsonErrorString = extractJSONText(from: error.localizedDescription) {
-                    if let apiError = parseJSONError(from: jsonErrorString) {
-                        print("API Error: \(apiError.message)")
-                        completion(nil, apiError)
-                    } else {
-                        // Handle case where JSON parsing fails
-                        print("Failed to parse JSON error message")
-                        completion(nil, error)
-                    }
+                if let jsonErrorString = extractJSONText(from: error.localizedDescription),
+                   let apiError = parseJSONError(from: jsonErrorString) {
+                    print("API Error: \(apiError.message)")
+                    completion(nil, apiError)  // Pass nil for result and apiError for Error
                 } else {
-                    // If no JSON string is found, handle the original error
-                    print(error.localizedDescription)
-                    completion(nil, error)
+                    // If the JSON parsing fails or no JSON string is found
+                    print("Failed to parse JSON error message or no JSON string found: \(error.localizedDescription)")
+                    completion(nil, error)  // Pass nil for result and the original error
                 }
                 
             }

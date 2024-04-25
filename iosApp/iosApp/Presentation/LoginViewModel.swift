@@ -54,7 +54,14 @@ class LoginViewModel: ObservableObject {
         ErrorHandler.handle({
             try await self.memberService.createUser(body: createUserRequest)
         }) { response, error in
-            print(error)
+            
+            if let error = error as? APIErrorResponse {
+                print("API 에러")
+                print(error.code)
+                print(error.message)
+            } else if let error = error {
+                print("오류 발생")
+            }
             print(response)
             
         }
