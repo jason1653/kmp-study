@@ -22,6 +22,7 @@
 		96948E882BD8A75100EECB4F /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96948E872BD8A75100EECB4F /* LoadingView.swift */; };
 		96948E8B2BD907FC00EECB4F /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96948E8A2BD907FC00EECB4F /* ErrorHandler.swift */; };
 		96AE47152BDA224B00B44D6B /* APIErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE47142BDA224B00B44D6B /* APIErrorResponse.swift */; };
+		96AE47192BDA48B900B44D6B /* LoginRepoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96AE47182BDA48B900B44D6B /* LoginRepoUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +56,7 @@
 		96948E872BD8A75100EECB4F /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		96948E8A2BD907FC00EECB4F /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		96AE47142BDA224B00B44D6B /* APIErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIErrorResponse.swift; sourceTree = "<group>"; };
+		96AE47182BDA48B900B44D6B /* LoginRepoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRepoUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +98,11 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
+				96AE47162BDA3FFF00B44D6B /* UseCase */,
 				96948E892BD907E800EECB4F /* Common */,
 				961239192BD252CB004D2FCE /* Widget */,
 				961239152BD24374004D2FCE /* Presentation */,
-				961239142BD1FE2B004D2FCE /* resource */,
+				961239142BD1FE2B004D2FCE /* Resource */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
@@ -133,13 +136,13 @@
 			path = Button;
 			sourceTree = "<group>";
 		};
-		961239142BD1FE2B004D2FCE /* resource */ = {
+		961239142BD1FE2B004D2FCE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				961239122BD1FE25004D2FCE /* SocialLoginIcon.xcassets */,
 			);
-			path = resource;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		961239152BD24374004D2FCE /* Presentation */ = {
@@ -201,6 +204,14 @@
 				96AE47142BDA224B00B44D6B /* APIErrorResponse.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		96AE47162BDA3FFF00B44D6B /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				96AE47182BDA48B900B44D6B /* LoginRepoUseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				961239112BD1F628004D2FCE /* SplashScreen.swift in Sources */,
+				96AE47192BDA48B900B44D6B /* LoginRepoUseCase.swift in Sources */,
 				960F8EB22BD6094F00C35A9F /* NonButton.swift in Sources */,
 				960F8EB42BD60AF800C35A9F /* BorderButton.swift in Sources */,
 				96AE47152BDA224B00B44D6B /* APIErrorResponse.swift in Sources */,
