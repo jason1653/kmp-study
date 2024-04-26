@@ -27,7 +27,7 @@ struct RegistScreen: View {
                     
                     DefaultTextField(label: "아이디", titleKey: "아이디를 입력해주세요", secured: false, errorMessage: $userNameErrorMessage, onChange: {
                     }, text: $userName)
-                    .padding(.top, 50)
+                    .padding(.top, 30)
                     
                     
                     

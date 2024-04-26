@@ -27,8 +27,8 @@ struct LoginScreen: View {
             DefaultTextField(label: "Email", titleKey: "이메일을 입력해주세요", secured: false, errorMessage: $viewModel.emailMessage, onChange: {
                 viewModel.emailValidator()
             }, text: $viewModel.email)
-            .padding(.top, 50)
-            .padding(.bottom, 30)
+            .padding(.top, 30)
+            .padding(.bottom, 20)
             
             DefaultTextField(label: "Password", titleKey: "패스워드를 입력해주세요", secured: true, errorMessage: $viewModel.passwdMessage, onChange: {
                 viewModel.passwdValidator()
