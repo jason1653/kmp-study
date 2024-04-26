@@ -20,24 +20,12 @@ struct LoginScreen: View {
             
             
             VStack(alignment: .leading) {
-                HStack {
-                    Button(action: {
-                        isShowLoginScreen = false
-                    }) {
-                        Image(systemName: "xmark")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 15, height: 15)
-                            .foregroundColor(.black)
-                    }
-                    .padding(.top, 20)
-                    Spacer()
-                }
+                TopNavigation(action: {
+                    isShowLoginScreen = false
+                }, iconName: .close)
                 
-                Text("로그인")
-                    .fontWeight(.bold)
-                    .font(.system(size: 24))
-                    .padding(.top, 30)
+                H1Text(text: "로그인")
+                
                 
                 DefaultTextField(label: "Email", titleKey: "이메일을 입력해주세요", secured: false, errorMessage: $viewModel.emailMessage, onChange: {
                     viewModel.emailValidator()
