@@ -31,7 +31,7 @@ struct SplashScreen: View {
                 
                 if splashLoading {
                     
-                    PrimaryButton(title: "회원가입", action: {
+                    WhiteButton(title: "회원가입", action: {
                         isShowRegistScreen = true
                     }).fullScreenCover(isPresented: $isShowRegistScreen, content: {
                         RegistScreen(isShowRegistScreen: $isShowRegistScreen)
