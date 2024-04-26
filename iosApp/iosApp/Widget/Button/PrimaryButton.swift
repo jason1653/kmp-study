@@ -16,9 +16,9 @@ struct PrimaryButton: View {
             Text(title)
                 .frame(maxWidth: .infinity)
                 .padding()
-                .background(Color.white)
+                .background(Color("primary"))
                 .cornerRadius(3.0)
-                .foregroundColor(Color.black)
+                .foregroundColor(Color.white)
                 .transition(.move(edge: .bottom).combined(with: .opacity))
 
         }

@@ -12,6 +12,7 @@ struct SplashScreen: View {
     @State var splashLoading = false
     @State var logoPaddingBottom: CGFloat = 0
     @State private var isShowLoginScreen = false
+    @State private var isShowRegistScreen = false
     var body: some View {
         ZStack {
             VStack {
@@ -31,9 +32,9 @@ struct SplashScreen: View {
                 if splashLoading {
                     
                     PrimaryButton(title: "회원가입", action: {
-                        isShowLoginScreen = true
-                    }).fullScreenCover(isPresented: $isShowLoginScreen, content: {
-                        LoginScreen(isShowLoginScreen: $isShowLoginScreen)
+                        isShowRegistScreen = true
+                    }).fullScreenCover(isPresented: $isShowRegistScreen, content: {
+                        RegistScreen(isShowRegistScreen: $isShowRegistScreen)
                     })
                        
                     
