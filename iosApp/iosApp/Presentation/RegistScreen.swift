@@ -13,56 +13,54 @@ struct RegistScreen: View {
     @State var userName: String = ""
     @State var userNameErrorMessage: String = ""
     var body: some View {
-        ZStack {
-            VStack(alignment: .leading) {
-                TopNavigation(action: {
-                    isShowRegistScreen = false
-                }, iconName: .close)
+        ModalLayout {
+            TopNavigation(action: {
+                isShowRegistScreen = false
+            }, iconName: .close)
+            
+            
+            ScrollView {
                 
-                
-                ScrollView {
+                VStack(alignment: .leading) {
+                    H1Text(text: "회원가입")
                     
-                    VStack(alignment: .leading) {
-                        H1Text(text: "회원가입")
-                        
-                        
-                        DefaultTextField(label: "아이디", titleKey: "아이디를 입력해주세요", secured: false, errorMessage: $userNameErrorMessage, onChange: {
-                        }, text: $userName)
-                        .padding(.top, 50)
-                        
-                        
-                        
-                        
-                        DefaultTextField(label: "패스워드", titleKey: "패스워드를 입력해주세요", secured: true, errorMessage: $userNameErrorMessage, onChange: {
-                        }, text: $userName)
-                        .padding(.top, 20)
-                        
-                        DefaultTextField(label: "패스워드 확인", titleKey: "패스워드를 입력해주세요", secured: true, errorMessage: $userNameErrorMessage, onChange: {
-                        }, text: $userName)
-                        .padding(.top, 20)
-                        
-                        
-                        DefaultTextField(label: "Email", titleKey: "이메일을 입력해주세요", secured: false, errorMessage: $userNameErrorMessage, onChange: {
-                        }, text: $userName)
-                        .padding(.top, 20)
-                        
-                        DefaultTextField(label: "이름", titleKey: "이름을 입력해주세요", secured: false, errorMessage: $userNameErrorMessage, onChange: {
-                        }, text: $userName)
-                        .padding(.top, 20)
-                        
-                        
-                        DefaultTextField(label: "닉네임", titleKey: "닉네임을 입력해주세요", secured: false, errorMessage: $userNameErrorMessage, onChange: {
-                        }, text: $userName)
-                        .padding(.top, 20)
-                    }
-                }
-                
-
-                PrimaryButton(title: "회원가입", action: {})
+                    
+                    DefaultTextField(label: "아이디", titleKey: "아이디를 입력해주세요", secured: false, errorMessage: $userNameErrorMessage, onChange: {
+                    }, text: $userName)
+                    .padding(.top, 50)
+                    
+                    
+                    
+                    
+                    DefaultTextField(label: "패스워드", titleKey: "패스워드를 입력해주세요", secured: true, errorMessage: $userNameErrorMessage, onChange: {
+                    }, text: $userName)
                     .padding(.top, 20)
-
+                    
+                    DefaultTextField(label: "패스워드 확인", titleKey: "패스워드를 입력해주세요", secured: true, errorMessage: $userNameErrorMessage, onChange: {
+                    }, text: $userName)
+                    .padding(.top, 20)
+                    
+                    
+                    DefaultTextField(label: "Email", titleKey: "이메일을 입력해주세요", secured: false, errorMessage: $userNameErrorMessage, onChange: {
+                    }, text: $userName)
+                    .padding(.top, 20)
+                    
+                    DefaultTextField(label: "이름", titleKey: "이름을 입력해주세요", secured: false, errorMessage: $userNameErrorMessage, onChange: {
+                    }, text: $userName)
+                    .padding(.top, 20)
+                    
+                    
+                    DefaultTextField(label: "닉네임", titleKey: "닉네임을 입력해주세요", secured: false, errorMessage: $userNameErrorMessage, onChange: {
+                    }, text: $userName)
+                    .padding(.top, 20)
+                }
             }
-        }.padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
+            
+
+            PrimaryButton(title: "회원가입", action: {})
+                .padding(.top, 20)
+
+        }
     }
 }
 
